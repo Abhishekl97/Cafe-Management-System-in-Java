@@ -62,7 +62,7 @@ public class Customer {
         return confirm_password;
     }
     
-    public void setConfirmPassword(String password) {
+    public void setConfirmPassword(String confirm_password) {
         this.confirm_password = confirm_password;
     }
         

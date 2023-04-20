@@ -23,5 +23,18 @@ public class DatabaseOperations {
         catch(Exception e){
             JOptionPane.showMessageDialog(null, e, "Message", JOptionPane.ERROR_MESSAGE);
             }
+    }
+    // Return the data called by the query
+    public static ResultSet getData(String query){
+        try{
+            Connection c = connectionToDatabase.getConnection();
+            Statement s = c.createStatement();
+            ResultSet r = s.executeQuery(query);
+            return r;
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e, "Message", JOptionPane.ERROR_MESSAGE);
+            return null;
         }
     }
+}
