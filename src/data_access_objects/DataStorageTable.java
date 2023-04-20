@@ -1,0 +1,24 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package data_access_objects;
+
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Acer
+ */
+public class DataStorageTable {
+    public static void main(String[] args){
+        try{
+           String customerTable = "CREATE table customer(id int AUTO_INCREMENT primary key, name VARCHAR(200), email VARCHAR(200),"
+                                + " mobile_number VARCHAR(10), password VARCHAR(200),confirm_password VARCHAR(200), security_question VARCHAR(200), answer VARCHAR(200), UNIQUE(email))";
+           DatabaseOperations.setDataOrDeleteData(customerTable, "Customer Table Created!");
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+}
