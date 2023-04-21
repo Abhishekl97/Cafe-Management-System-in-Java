@@ -13,7 +13,6 @@ import data_access_objects.CustomerDataAccessObject;
  */
 public class Signup_Page extends javax.swing.JFrame {
     
-    
     public String pattern_email = "^[\\w._%+-]+@[\\w.-]+.[a-zA-Z]{2,}$";
     public String pattern_mobile_number = "^[0-9]{10}$";
     /**
@@ -23,7 +22,7 @@ public class Signup_Page extends javax.swing.JFrame {
         initComponents();
         btn_create_account.setEnabled(false);
     }
-    
+    // Clear text fields
     public void ClearFields(){
         tf_name.setText("");
         tf_email.setText("");
@@ -35,7 +34,7 @@ public class Signup_Page extends javax.swing.JFrame {
         btn_create_account.setEnabled(false);
         
     }
-    
+    // Check if the text fields have information
     public void validateFields(){
         String name = tf_name.getText();
         String email = tf_email.getText();
@@ -279,7 +278,7 @@ public class Signup_Page extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // Exit application whe exit button clicked
     private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
         // TODO add your handling code here:
         int x = JOptionPane.showConfirmDialog(null, "Do you want to close the application?","Select", JOptionPane.YES_NO_OPTION);
@@ -287,7 +286,7 @@ public class Signup_Page extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_btn_exitActionPerformed
-
+    //Check for all fields and create account for customer
     private void btn_create_accountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_create_accountActionPerformed
         // TODO add your handling code here:
         Customer customer = new Customer();
@@ -300,12 +299,12 @@ public class Signup_Page extends javax.swing.JFrame {
         CustomerDataAccessObject.saveValue(customer);
         ClearFields();
     }//GEN-LAST:event_btn_create_accountActionPerformed
-
+    // Clear Text Fields
     private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
         // TODO add your handling code here:
         ClearFields();
     }//GEN-LAST:event_btn_clearActionPerformed
-
+    //Validate Fields
     private void tf_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_nameKeyReleased
         // TODO add your handling code here:
         validateFields();
@@ -340,7 +339,7 @@ public class Signup_Page extends javax.swing.JFrame {
         // TODO add your handling code here:
         validateFields();
     }//GEN-LAST:event_tf_answerKeyReleased
-
+    // Navigate to the login page when 'Login' button is clicked.
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
         setVisible(false);
@@ -403,4 +402,4 @@ public class Signup_Page extends javax.swing.JFrame {
     private javax.swing.JPasswordField tf_password;
     private javax.swing.JTextField tf_security_question;
     // End of variables declaration//GEN-END:variables
-}
+} 

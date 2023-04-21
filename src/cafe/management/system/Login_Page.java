@@ -23,13 +23,13 @@ public class Login_Page extends javax.swing.JFrame {
         btn_login.setEnabled(false);
     }
     
-    // Check if needs to be done or not?
+    // Clear text fields
     public void clearFields(){
         // Clearing fields after the clear button is clicked
         tf_email.setText("");
         tf_password.setText("");
     }
-    
+    // Check if the text fields have information
     public void validateFields(){
         String email = tf_email.getText();
         String password = tf_password.getText();
@@ -171,7 +171,7 @@ public class Login_Page extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // Exit application whe exit button clicked
     private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
         // TODO add your handling code here:
         int x = JOptionPane.showConfirmDialog(null, "Do you want to exit this application?","Select",JOptionPane.YES_NO_OPTION);
@@ -179,7 +179,7 @@ public class Login_Page extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_btn_exitActionPerformed
-
+    // Check for email and password to perform successfull login
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
         String email = tf_email.getText();
@@ -198,7 +198,7 @@ public class Login_Page extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btn_loginActionPerformed
-
+    // Validate fields for key Releases
     private void tf_emailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_emailKeyReleased
         // TODO add your handling code here:
         validateFields();
@@ -208,12 +208,12 @@ public class Login_Page extends javax.swing.JFrame {
         // TODO add your handling code here:
         validateFields();
     }//GEN-LAST:event_tf_passwordKeyReleased
-
+    // Clear Fields
     private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
         // TODO add your handling code here:
         clearFields();
     }//GEN-LAST:event_btn_clearActionPerformed
-
+    // Navigate to the Forgot Password Page when 'Forgot Password' button is clicked
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         new ForgotPassword().setVisible(true);

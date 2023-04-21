@@ -24,7 +24,7 @@ public class DataStorageTable {
         }
         return instance;
     }
-    
+    // Create Customer table
     public void createCustomerTable() {
         try {
             String customerTable = "CREATE table customer(id int AUTO_INCREMENT primary key, name VARCHAR(200), email VARCHAR(200),"
@@ -34,7 +34,7 @@ public class DataStorageTable {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-
+    // Add Manager details in the table
     public void addManagerDetails() {
         try {
             String managerDetails = "insert into customer(name, email, mobile_number, password, security_question, answer) VALUES ('Manager','manager@gmail.com','1234567890','admin','What city do you live in?','Boulder');";

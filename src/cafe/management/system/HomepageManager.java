@@ -94,7 +94,7 @@ public class HomepageManager extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+ 
     private void btn_signoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_signoutActionPerformed
         // TODO add your handling code here:
         new Login_Page().setVisible(true);

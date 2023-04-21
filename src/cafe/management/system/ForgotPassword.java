@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -24,7 +24,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         btn_reset_password.setEnabled(false);
         tf_security_question.setEditable(false);
     }
-    
+    // Clear text fields
     public void ClearFields(){
         tf_email.setText("");
         tf_security_question.setText("");
@@ -35,6 +35,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         validateFields();
         
     }
+    // Check if the text fields have information
     public void validateFields(){
         String email = tf_email.getText();
         String security_question = tf_security_question.getText();
@@ -83,6 +84,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         lbl_email_id.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lbl_email_id.setText("Email ID");
 
+        tf_email.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tf_email.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tf_emailKeyReleased(evt);
@@ -95,12 +97,14 @@ public class ForgotPassword extends javax.swing.JFrame {
         lbl_confirm_password.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lbl_confirm_password.setText("Confirm Password");
 
+        tf_new_password.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tf_new_password.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tf_new_passwordKeyReleased(evt);
             }
         });
 
+        tf_confirm_password.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tf_confirm_password.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tf_confirm_passwordKeyReleased(evt);
@@ -113,12 +117,14 @@ public class ForgotPassword extends javax.swing.JFrame {
         lbl_answer.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lbl_answer.setText("Answer");
 
+        tf_security_question.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tf_security_question.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tf_security_questionKeyReleased(evt);
             }
         });
 
+        tf_answer.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tf_answer.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tf_answerKeyReleased(evt);
@@ -245,7 +251,8 @@ public class ForgotPassword extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    // Validate fields for key Releases
     private void tf_security_questionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_security_questionKeyReleased
         validateFields();
     }//GEN-LAST:event_tf_security_questionKeyReleased
@@ -265,7 +272,7 @@ public class ForgotPassword extends javax.swing.JFrame {
     private void tf_confirm_passwordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_confirm_passwordKeyReleased
         validateFields();
     }//GEN-LAST:event_tf_confirm_passwordKeyReleased
-
+    // Check for answer to Security question before resetting the password
     private void btn_reset_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reset_passwordActionPerformed
         // TODO add your handling code here:
         String answer = tf_answer.getText();
@@ -278,17 +285,18 @@ public class ForgotPassword extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Incorrect Answer","Message",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btn_reset_passwordActionPerformed
-
+    // Clear all fields
     private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
         // TODO add your handling code here:
-        ClearFields();    
+        ClearFields();
+        tf_email.setEditable(true);
     }//GEN-LAST:event_btn_clearActionPerformed
-
+    // Navigate to the login page when 'Login' button is clicked
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
         new Login_Page().setVisible(true);
     }//GEN-LAST:event_btn_loginActionPerformed
-
+    // Exit the application
     private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
         // TODO add your handling code here:
         int x = JOptionPane.showConfirmDialog(null, "Do you want to close the application?","Select", JOptionPane.YES_NO_OPTION);
@@ -296,7 +304,7 @@ public class ForgotPassword extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_btn_exitActionPerformed
-
+    // Check if the email entered by customer is valid
     private void btn_checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_checkActionPerformed
         // TODO add your handling code here:
         email=tf_email.getText();
@@ -307,6 +315,7 @@ public class ForgotPassword extends javax.swing.JFrame {
             customer = CustomerDataAccessObject.getSecurityQuestion(email);
             if (customer == null){
                 JOptionPane.showMessageDialog(null, "Invalid Email","Message",JOptionPane.ERROR_MESSAGE);
+                tf_email.setEditable(true);
             } else {
                 tf_email.setEditable(false);
                 customer_answer=customer.getAnswer();
@@ -350,7 +359,7 @@ public class ForgotPassword extends javax.swing.JFrame {
                 new ForgotPassword().setVisible(true);
             }
         });
-    }
+    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_check;

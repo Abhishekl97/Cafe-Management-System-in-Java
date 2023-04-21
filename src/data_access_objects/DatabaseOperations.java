@@ -12,6 +12,7 @@ import java.sql.*;
  * @author Acer
  */
 public class DatabaseOperations {
+    // Set or delete data from the database
     public static void setDataOrDeleteData(String Query, String message){
         try{
             Connection c = connectionToDatabase.getConnection();
