@@ -191,7 +191,11 @@ public class Login_Page extends javax.swing.JFrame {
         }
         else{// Navigate to te HomePage
             setVisible(false);
-            new HomepageCustomer().setVisible(true);
+            if (email.equals("manager@gmail.com")){
+                new HomepageManager().setVisible(true);
+            }else{
+                new HomepageCustomer().setVisible(true);
+            }
         }
     }//GEN-LAST:event_btn_loginActionPerformed
 

@@ -52,6 +52,11 @@ public class HomepageManager extends javax.swing.JFrame {
 
         btn_signout.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btn_signout.setText("Signout");
+        btn_signout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_signoutActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,6 +94,11 @@ public class HomepageManager extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_signoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_signoutActionPerformed
+        // TODO add your handling code here:
+        new Login_Page().setVisible(true);
+    }//GEN-LAST:event_btn_signoutActionPerformed
 
     /**
      * @param args the command line arguments

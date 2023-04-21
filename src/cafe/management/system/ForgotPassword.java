@@ -32,6 +32,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         tf_new_password.setText("");
         tf_confirm_password.setText("");
         btn_reset_password.setEnabled(false);
+        validateFields();
         
     }
     public void validateFields(){
@@ -72,6 +73,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         btn_login = new javax.swing.JButton();
         btn_clear = new javax.swing.JButton();
         btn_exit = new javax.swing.JButton();
+        btn_check = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,11 +83,6 @@ public class ForgotPassword extends javax.swing.JFrame {
         lbl_email_id.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         lbl_email_id.setText("Email ID");
 
-        tf_email.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tf_emailFocusLost(evt);
-            }
-        });
         tf_email.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tf_emailKeyReleased(evt);
@@ -160,6 +157,14 @@ public class ForgotPassword extends javax.swing.JFrame {
             }
         });
 
+        btn_check.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btn_check.setText("Check");
+        btn_check.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_checkActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -195,17 +200,21 @@ public class ForgotPassword extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btn_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_clear, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(543, 543, 543))
+                .addGap(45, 45, 45)
+                .addComponent(btn_check, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(410, 410, 410))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(378, Short.MAX_VALUE)
+                .addContainerGap(377, Short.MAX_VALUE)
                 .addComponent(lbl_reset_password, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(tf_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tf_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_check, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tf_security_question, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -272,8 +281,7 @@ public class ForgotPassword extends javax.swing.JFrame {
 
     private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
         // TODO add your handling code here:
-        ClearFields();
-        
+        ClearFields();    
     }//GEN-LAST:event_btn_clearActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
@@ -289,7 +297,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_exitActionPerformed
 
-    private void tf_emailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tf_emailFocusLost
+    private void btn_checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_checkActionPerformed
         // TODO add your handling code here:
         email=tf_email.getText();
         if (email == "" || email == null){
@@ -306,7 +314,7 @@ public class ForgotPassword extends javax.swing.JFrame {
                 validateFields();
             }
         }
-    }//GEN-LAST:event_tf_emailFocusLost
+    }//GEN-LAST:event_btn_checkActionPerformed
 
     /**
      * @param args the command line arguments
@@ -345,6 +353,7 @@ public class ForgotPassword extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_check;
     private javax.swing.JButton btn_clear;
     private javax.swing.JButton btn_exit;
     private javax.swing.JButton btn_login;
