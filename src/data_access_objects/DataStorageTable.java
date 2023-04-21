@@ -14,9 +14,9 @@ public class DataStorageTable {
     public static void main(String[] args){
         try{
            String customerTable = "CREATE table customer(id int AUTO_INCREMENT primary key, name VARCHAR(200), email VARCHAR(200),"
-                                + " mobile_number VARCHAR(10), password VARCHAR(200), security_question VARCHAR(200), answer VARCHAR(200), confirm_password VARCHAR(200), UNIQUE(email))";
-           String managerDetails = "insert into customer(name, email, mobile_number, password, security_question, answer, confirm_password) VALUES ('Manager','manager@gmail.com','1234567890','admin','What city do you live in?','Boulder','admin')";
-           //DatabaseOperations.setDataOrDeleteData(customerTable, "Customer Table Created!");
+                                + " mobile_number VARCHAR(10), password VARCHAR(200), security_question VARCHAR(200), answer VARCHAR(200), UNIQUE(email));";
+           String managerDetails = "insert into customer(name, email, mobile_number, password, security_question, answer) VALUES ('Manager','manager@gmail.com','1234567890','admin','What city do you live in?','Boulder');";
+           DatabaseOperations.setDataOrDeleteData(customerTable, "Customer Table Created!");
            DatabaseOperations.setDataOrDeleteData(managerDetails, "Manager Details Added Successfully!");
         }
         catch(Exception e){

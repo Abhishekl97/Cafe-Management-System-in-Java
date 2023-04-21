@@ -14,8 +14,8 @@ import data_access_objects.CustomerDataAccessObject;
 public class Signup_Page extends javax.swing.JFrame {
     
     
-    public String pattern_email = "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$";
-    public String pattern_mobile_number = "^[0-9]*$";
+    public String pattern_email = "^[\\w._%+-]+@[\\w.-]+.[a-zA-Z]{2,}$";
+    public String pattern_mobile_number = "^[0-9]{10}$";
     /**
      * Creates new form Signup_Page
      */
@@ -44,7 +44,7 @@ public class Signup_Page extends javax.swing.JFrame {
         String confirm_password = tf_confirm_password.getText();
         String security_question = tf_security_question.getText();
         String answer = tf_answer.getText();
-        if(!name.equals("") && email.matches(pattern_email) && mobile_number.matches(pattern_mobile_number) && mobile_number.length() == 10 && !password.equals("") && !confirm_password.equals("") && password.equals(confirm_password) && !security_question.equals("") && !answer.equals("")){
+        if(!name.equals("") && email.matches(pattern_email) && mobile_number.matches(pattern_mobile_number) && !password.equals("") && !confirm_password.equals("") && password.equals(confirm_password) && !security_question.equals("") && !answer.equals("")){
             btn_create_account.setEnabled(true);
         }
         else{    
@@ -87,7 +87,7 @@ public class Signup_Page extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel1.setText("Create New Account");
+        jLabel1.setText("     Create New Account");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Name");
@@ -196,10 +196,7 @@ public class Signup_Page extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(519, 519, 519)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(507, 507, 507)
+                        .addGap(539, 539, 539)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,22 +227,25 @@ public class Signup_Page extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(btn_create_account)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_clear)))))
+                                .addComponent(btn_clear))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(519, 519, 519)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(1001, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(214, 214, 214)
+                .addGap(136, 136, 136)
                 .addComponent(jLabel1)
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(tf_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(tf_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -255,19 +255,17 @@ public class Signup_Page extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(tf_confirm_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(tf_mobile_number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(tf_security_question, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_mobile_number, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(tf_answer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_security_question, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tf_answer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_create_account)
@@ -297,7 +295,6 @@ public class Signup_Page extends javax.swing.JFrame {
         customer.setEmail(tf_email.getText());
         customer.setMobilenumber(tf_mobile_number.getText());
         customer.setPassword(tf_password.getText());
-        customer.setConfirmPassword(tf_confirm_password.getText());
         customer.setSecurityQuestion(tf_security_question.getText());
         customer.setAnswer(tf_answer.getText());
         CustomerDataAccessObject.saveValue(customer);

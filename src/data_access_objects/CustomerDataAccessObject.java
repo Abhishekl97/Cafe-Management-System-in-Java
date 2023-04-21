@@ -13,8 +13,8 @@ import java.sql.*;
  */
 public class CustomerDataAccessObject {
     public static void saveValue(Customer customer){
-        String query = "INSERT into customer(id, name, email ,mobile_number, password, security_question, answer, confirm_password) VALUES('"+customer.getId()+"','"+customer.getName()+"',"
-                + "'"+customer.getEmail()+"','"+customer.getMobilenumber()+"','"+customer.getPassword()+"','"+customer.getSecurityQuestion()+"','"+customer.getAnswer()+"','"+customer.getConfirmPassword()+"')";
+        String query = "INSERT into customer(id, name, email ,mobile_number, password, security_question, answer) VALUES('"+customer.getId()+"','"+customer.getName()+"',"
+                + "'"+customer.getEmail()+"','"+customer.getMobilenumber()+"','"+customer.getPassword()+"','"+customer.getSecurityQuestion()+"','"+customer.getAnswer()+"')";
         
         DatabaseOperations.setDataOrDeleteData(query, "Registered Sucessfully!");
     }
@@ -32,16 +32,32 @@ public class CustomerDataAccessObject {
                 customer.setPassword(r.getString("password"));
                 customer.setSecurityQuestion(r.getString("security_question"));
                 customer.setAnswer(r.getString("answer"));
-                customer.setConfirmPassword(r.getString("confirm_password"));
             }
-//            while(r.next()){
-//                customer = new Customer();
-//                customer.setStatus(r.getString("status"));
-//            }
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
         return customer;
+    }
+    
+    public static Customer getSecurityQuestion(String email){
+        Customer customer = null;
+        try{
+            ResultSet r = DatabaseOperations.getData("select * from customer where email = '"+email+"'");
+            while(r.next()){
+                customer = new Customer();
+                customer.setSecurityQuestion(r.getString("security_question"));
+                customer.setAnswer(r.getString("answer"));
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return customer;
+    }
+    
+    public static void reset_password(String email, String new_password){
+        String query = "update Customer set password = '"+new_password+"' where email = '"+email+"'";
+        DatabaseOperations.setDataOrDeleteData(query, "Password Changed susccessfully");
     }
 }

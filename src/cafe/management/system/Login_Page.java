@@ -96,6 +96,11 @@ public class Login_Page extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setText("Forgot Password?");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         btn_clear.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_clear.setText("Clear");
@@ -186,7 +191,7 @@ public class Login_Page extends javax.swing.JFrame {
         }
         else{// Navigate to te HomePage
             setVisible(false);
-            new Home_Page(email).setVisible(true);
+            new HomepageCustomer().setVisible(true);
         }
     }//GEN-LAST:event_btn_loginActionPerformed
 
@@ -204,6 +209,11 @@ public class Login_Page extends javax.swing.JFrame {
         // TODO add your handling code here:
         clearFields();
     }//GEN-LAST:event_btn_clearActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new ForgotPassword().setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
