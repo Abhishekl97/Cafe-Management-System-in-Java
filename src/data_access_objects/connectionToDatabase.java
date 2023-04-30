@@ -14,7 +14,7 @@ public class connectionToDatabase {
     public static Connection getConnection(){
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/cafems?useSSL=false","root","Omkaryeole@10");
+            Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/cafems?useSSL=false","root","Abhishek@8662");
             return c; 
         }
         catch(Exception e){

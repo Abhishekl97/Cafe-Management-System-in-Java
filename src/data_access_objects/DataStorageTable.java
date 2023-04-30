@@ -43,9 +43,19 @@ public class DataStorageTable {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    // Add Manager details in the table
+    public void addCategoryTable() {
+        try {
+            String categoryTable = "CREATE table category(id int AUTO_INCREMENT primary key, name VARCHAR(200));";
+            DatabaseOperations.setDataOrDeleteData(categoryTable, "Category Table Created!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     
     public static void main(String[] args){
         DataStorageTable.getInstance().createCustomerTable();
         DataStorageTable.getInstance().addManagerDetails();
+        DataStorageTable.getInstance().addCategoryTable();
     }
 }

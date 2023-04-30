@@ -40,6 +40,11 @@ public class HomepageManager extends javax.swing.JFrame {
 
         btn_modify_categories.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btn_modify_categories.setText("Modify Categories");
+        btn_modify_categories.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modify_categoriesActionPerformed(evt);
+            }
+        });
 
         btn_accept_order.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btn_accept_order.setText("Accept Order");
@@ -99,6 +104,11 @@ public class HomepageManager extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Login_Page().setVisible(true);
     }//GEN-LAST:event_btn_signoutActionPerformed
+
+    private void btn_modify_categoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modify_categoriesActionPerformed
+        // TODO add your handling code here:
+        new Modify_Categories().setVisible(true);
+    }//GEN-LAST:event_btn_modify_categoriesActionPerformed
 
     /**
      * @param args the command line arguments

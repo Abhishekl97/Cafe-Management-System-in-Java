@@ -75,6 +75,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Modify Categories"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_modify_categoriesActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_accept_order">
       <Properties>
