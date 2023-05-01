@@ -32,6 +32,7 @@ public class HomepageManager extends javax.swing.JFrame {
         lbl_homepage_customer = new javax.swing.JLabel();
         btn_change_password = new javax.swing.JButton();
         btn_signout = new javax.swing.JButton();
+        btn_modify_categories1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,12 +64,20 @@ public class HomepageManager extends javax.swing.JFrame {
             }
         });
 
+        btn_modify_categories1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btn_modify_categories1.setText("Add Sub-Categories");
+        btn_modify_categories1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modify_categories1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(699, 699, 699)
+                .addGap(702, 702, 702)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_signout, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_change_password, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -76,8 +85,9 @@ public class HomepageManager extends javax.swing.JFrame {
                         .addComponent(btn_modify_categories, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_order_log, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lbl_homepage_customer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_accept_order, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1021, Short.MAX_VALUE))
+                        .addComponent(btn_accept_order, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_modify_categories1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(1018, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,11 +100,13 @@ public class HomepageManager extends javax.swing.JFrame {
                 .addComponent(btn_order_log)
                 .addGap(28, 28, 28)
                 .addComponent(btn_modify_categories)
-                .addGap(32, 32, 32)
+                .addGap(30, 30, 30)
+                .addComponent(btn_modify_categories1)
+                .addGap(29, 29, 29)
                 .addComponent(btn_change_password)
-                .addGap(31, 31, 31)
+                .addGap(34, 34, 34)
                 .addComponent(btn_signout)
-                .addContainerGap(605, Short.MAX_VALUE))
+                .addContainerGap(549, Short.MAX_VALUE))
         );
 
         pack();
@@ -109,6 +121,11 @@ public class HomepageManager extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Modify_Categories().setVisible(true);
     }//GEN-LAST:event_btn_modify_categoriesActionPerformed
+
+    private void btn_modify_categories1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modify_categories1ActionPerformed
+        // TODO add your handling code here:
+        new AddSubCategory().setVisible(true);
+    }//GEN-LAST:event_btn_modify_categories1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,6 +166,7 @@ public class HomepageManager extends javax.swing.JFrame {
     private javax.swing.JButton btn_accept_order;
     private javax.swing.JButton btn_change_password;
     private javax.swing.JButton btn_modify_categories;
+    private javax.swing.JButton btn_modify_categories1;
     private javax.swing.JButton btn_order_log;
     private javax.swing.JButton btn_signout;
     private javax.swing.JLabel lbl_homepage_customer;

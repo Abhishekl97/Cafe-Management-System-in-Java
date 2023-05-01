@@ -18,7 +18,6 @@ public class Customer {
     private String securityQuestion;
     private String answer;
 
-    // Getters and Setters for the variables
     public int getId() {
         return id;
     }

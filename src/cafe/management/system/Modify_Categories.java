@@ -57,6 +57,7 @@ public class Modify_Categories extends javax.swing.JFrame {
         tf_name = new javax.swing.JTextField();
         btn_save = new javax.swing.JButton();
         btn_clear = new javax.swing.JButton();
+        btn_manager_homepage = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -111,6 +112,13 @@ public class Modify_Categories extends javax.swing.JFrame {
             }
         });
 
+        btn_manager_homepage.setText("Back");
+        btn_manager_homepage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_manager_homepageActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -133,9 +141,12 @@ public class Modify_Categories extends javax.swing.JFrame {
                                 .addComponent(tf_name, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(125, 125, 125)
-                                .addComponent(btn_save)
-                                .addGap(77, 77, 77)
-                                .addComponent(btn_clear)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn_manager_homepage)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btn_save)
+                                        .addGap(77, 77, 77)
+                                        .addComponent(btn_clear)))))
                         .addGap(282, 282, 282))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lbl_view_categories, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,7 +174,9 @@ public class Modify_Categories extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_save)
-                            .addComponent(btn_clear))))
+                            .addComponent(btn_clear))
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_manager_homepage)))
                 .addGap(18, 18, 18)
                 .addComponent(lbl_text)
                 .addContainerGap(503, Short.MAX_VALUE))
@@ -216,6 +229,12 @@ public class Modify_Categories extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void btn_manager_homepageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_manager_homepageActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new HomepageManager().setVisible(true);
+    }//GEN-LAST:event_btn_manager_homepageActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -253,6 +272,7 @@ public class Modify_Categories extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_clear;
+    private javax.swing.JButton btn_manager_homepage;
     private javax.swing.JButton btn_save;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

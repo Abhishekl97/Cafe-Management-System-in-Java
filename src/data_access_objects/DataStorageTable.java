@@ -53,9 +53,19 @@ public class DataStorageTable {
         }
     }
     
+    public void addSubCategoryTable(){
+        try{
+            String subcategoryTable = "CREATE table subcategory(id int AUTO_INCREMENT primary key, name VARCHAR(200), category varchar(200), price varchar(200))";
+            DatabaseOperations.setDataOrDeleteData(subcategoryTable, "Sub-Category Table Created!");   
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }    
     public static void main(String[] args){
         DataStorageTable.getInstance().createCustomerTable();
         DataStorageTable.getInstance().addManagerDetails();
         DataStorageTable.getInstance().addCategoryTable();
+        DataStorageTable.getInstance().addSubCategoryTable();
     }
 }
