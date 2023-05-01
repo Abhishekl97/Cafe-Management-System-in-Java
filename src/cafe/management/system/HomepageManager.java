@@ -33,6 +33,7 @@ public class HomepageManager extends javax.swing.JFrame {
         btn_change_password = new javax.swing.JButton();
         btn_signout = new javax.swing.JButton();
         btn_modify_categories1 = new javax.swing.JButton();
+        btn_modify_categories2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,10 +71,18 @@ public class HomepageManager extends javax.swing.JFrame {
         });
 
         btn_modify_categories1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        btn_modify_categories1.setText("Add Sub-Categories");
+        btn_modify_categories1.setText("Modify Sub-Categories");
         btn_modify_categories1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_modify_categories1ActionPerformed(evt);
+            }
+        });
+
+        btn_modify_categories2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btn_modify_categories2.setText("Add Sub-Categories");
+        btn_modify_categories2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modify_categories2ActionPerformed(evt);
             }
         });
 
@@ -91,7 +100,8 @@ public class HomepageManager extends javax.swing.JFrame {
                         .addComponent(btn_order_log, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lbl_homepage_customer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_accept_order, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_modify_categories1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btn_modify_categories1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_modify_categories2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(1018, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -105,13 +115,15 @@ public class HomepageManager extends javax.swing.JFrame {
                 .addComponent(btn_order_log)
                 .addGap(28, 28, 28)
                 .addComponent(btn_modify_categories)
-                .addGap(30, 30, 30)
+                .addGap(37, 37, 37)
+                .addComponent(btn_modify_categories2)
+                .addGap(31, 31, 31)
                 .addComponent(btn_modify_categories1)
-                .addGap(29, 29, 29)
+                .addGap(27, 27, 27)
                 .addComponent(btn_change_password)
-                .addGap(34, 34, 34)
+                .addGap(27, 27, 27)
                 .addComponent(btn_signout)
-                .addContainerGap(549, Short.MAX_VALUE))
+                .addContainerGap(494, Short.MAX_VALUE))
         );
 
         pack();
@@ -129,13 +141,18 @@ public class HomepageManager extends javax.swing.JFrame {
 
     private void btn_modify_categories1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modify_categories1ActionPerformed
         // TODO add your handling code here:
-        new AddSubCategory().setVisible(true);
+        new ModifySubCategories().setVisible(true);
     }//GEN-LAST:event_btn_modify_categories1ActionPerformed
 
     private void btn_change_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_change_passwordActionPerformed
         // TODO add your handling code here:
         new Change_Password(email_id).setVisible(true);
     }//GEN-LAST:event_btn_change_passwordActionPerformed
+
+    private void btn_modify_categories2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modify_categories2ActionPerformed
+        // TODO add your handling code here:
+        new AddSubCategory().setVisible(true);
+    }//GEN-LAST:event_btn_modify_categories2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,6 +194,7 @@ public class HomepageManager extends javax.swing.JFrame {
     private javax.swing.JButton btn_change_password;
     private javax.swing.JButton btn_modify_categories;
     private javax.swing.JButton btn_modify_categories1;
+    private javax.swing.JButton btn_modify_categories2;
     private javax.swing.JButton btn_order_log;
     private javax.swing.JButton btn_signout;
     private javax.swing.JLabel lbl_homepage_customer;

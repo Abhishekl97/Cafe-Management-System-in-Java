@@ -8,7 +8,7 @@ package basic_models;
  *
  * @author Acer
  */
-public class SubCategory {
+public class SubCategories {
     private int id;
     private String name;
     private String category;

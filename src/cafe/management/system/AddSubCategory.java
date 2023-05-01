@@ -7,7 +7,7 @@ package cafe.management.system;
 import java.util.ArrayList;
 import java.util.Iterator;
 import basic_models.Categories;
-import basic_models.SubCategory;
+import basic_models.SubCategories;
 import data_access_objects.CategoriesDataAccessObject;
 import data_access_objects.SubCategoriesDataAccessObject;
 
@@ -202,7 +202,7 @@ public class AddSubCategory extends javax.swing.JFrame {
 
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
         // TODO add your handling code here:
-        SubCategory subcategory = new SubCategory();
+        SubCategories subcategory = new SubCategories();
         subcategory.setName(txt_name.getText());
         subcategory.setCategory((String) txt_category.getSelectedItem());
         subcategory.setPrice(txt_price.getText());
