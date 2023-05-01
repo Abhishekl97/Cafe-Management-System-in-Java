@@ -16,7 +16,7 @@ public class HomepageManager extends javax.swing.JFrame {
     public HomepageManager() {
         initComponents();
     }
-
+    public String email_id = "manager@gmail.com";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,6 +55,11 @@ public class HomepageManager extends javax.swing.JFrame {
 
         btn_change_password.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btn_change_password.setText("Change Password");
+        btn_change_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_change_passwordActionPerformed(evt);
+            }
+        });
 
         btn_signout.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btn_signout.setText("Signout");
@@ -126,6 +131,11 @@ public class HomepageManager extends javax.swing.JFrame {
         // TODO add your handling code here:
         new AddSubCategory().setVisible(true);
     }//GEN-LAST:event_btn_modify_categories1ActionPerformed
+
+    private void btn_change_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_change_passwordActionPerformed
+        // TODO add your handling code here:
+        new Change_Password(email_id).setVisible(true);
+    }//GEN-LAST:event_btn_change_passwordActionPerformed
 
     /**
      * @param args the command line arguments

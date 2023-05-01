@@ -194,7 +194,7 @@ public class Login_Page extends javax.swing.JFrame {
             if (email.equals("manager@gmail.com")){
                 new HomepageManager().setVisible(true);
             }else{
-                new HomepageCustomer().setVisible(true);
+                new HomepageCustomer(email).setVisible(true);
             }
         }
     }//GEN-LAST:event_btn_loginActionPerformed

@@ -57,9 +57,24 @@ public class CustomerDataAccessObject{
         }
         return customer;
     }
-    //Update Customer Password
+    //Reset Customer Password
     public static void reset_password(String email, String new_password){
         String query = "update Customer set password = '"+new_password+"' where email = '"+email+"'";
         DatabaseOperations.setDataOrDeleteData(query, "Password Changed susccessfully");
+    }
+    //Change Customer Password
+    public static void change_password(String email, String old_password, String new_password){
+        try{
+            ResultSet r = DatabaseOperations.getData("select * from Customer where email = '"+email+"' and password = '"+old_password+"'");
+            if(r.next()){
+                reset_password(email,new_password);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Old Password is Incorrect");
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 }

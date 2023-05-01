@@ -16,7 +16,12 @@ public class HomepageCustomer extends javax.swing.JFrame {
     public HomepageCustomer() {
         initComponents();
     }
-
+    public String email_id;
+    public HomepageCustomer(String email) {
+        initComponents();
+        email_id = email;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,6 +58,11 @@ public class HomepageCustomer extends javax.swing.JFrame {
 
         btn_change_password.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btn_change_password.setText("Change Password");
+        btn_change_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_change_passwordActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,6 +102,11 @@ public class HomepageCustomer extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Login_Page().setVisible(true);
     }//GEN-LAST:event_btn_signoutActionPerformed
+
+    private void btn_change_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_change_passwordActionPerformed
+        // TODO add your handling code here:
+        new Change_Password(email_id).setVisible(true);
+    }//GEN-LAST:event_btn_change_passwordActionPerformed
 
     /**
      * @param args the command line arguments
