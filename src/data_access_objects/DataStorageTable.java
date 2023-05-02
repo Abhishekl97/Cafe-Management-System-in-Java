@@ -61,11 +61,22 @@ public class DataStorageTable {
         catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
-    }    
+    }
+
+    public void addbillDetails(){
+        try{
+        String billDetailsTable = "CREATE table billdetailstable(id int PRIMARY KEY, name VARCHAR(200), mobile_number VARCHAR(200), email VARCHAR(200), date VARCHAR(50), total VARCHAR(200), createdBy VARCHAR(200))"; 
+        DatabaseOperations.setDataOrDeleteData(billDetailsTable, "Bill Details table created!");
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
     public static void main(String[] args){
         DataStorageTable.getInstance().createCustomerTable();
         DataStorageTable.getInstance().addManagerDetails();
         DataStorageTable.getInstance().addCategoryTable();
         DataStorageTable.getInstance().addSubCategoryTable();
+        DataStorageTable.getInstance().addbillDetails();
     }
 }

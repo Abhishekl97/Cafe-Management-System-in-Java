@@ -47,6 +47,11 @@ public class HomepageCustomer extends javax.swing.JFrame {
 
         btn_place_order.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btn_place_order.setText("Place Order");
+        btn_place_order.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_place_orderActionPerformed(evt);
+            }
+        });
 
         btn_signout.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btn_signout.setText("Signout");
@@ -107,6 +112,12 @@ public class HomepageCustomer extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Change_Password(email_id).setVisible(true);
     }//GEN-LAST:event_btn_change_passwordActionPerformed
+
+    private void btn_place_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_place_orderActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new PlaceOrder(email_id).setVisible(true);
+    }//GEN-LAST:event_btn_place_orderActionPerformed
 
     /**
      * @param args the command line arguments

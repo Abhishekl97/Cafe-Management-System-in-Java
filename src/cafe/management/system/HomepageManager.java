@@ -50,6 +50,11 @@ public class HomepageManager extends javax.swing.JFrame {
 
         btn_accept_order.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btn_accept_order.setText("Accept Order");
+        btn_accept_order.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_accept_orderActionPerformed(evt);
+            }
+        });
 
         lbl_homepage_customer.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         lbl_homepage_customer.setText(" HomePage");
@@ -153,6 +158,10 @@ public class HomepageManager extends javax.swing.JFrame {
         // TODO add your handling code here:
         new AddSubCategory().setVisible(true);
     }//GEN-LAST:event_btn_modify_categories2ActionPerformed
+
+    private void btn_accept_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_accept_orderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_accept_orderActionPerformed
 
     /**
      * @param args the command line arguments

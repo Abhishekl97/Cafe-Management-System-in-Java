@@ -45,4 +45,52 @@ public class SubCategoriesDataAccessObject {
         String query = "DELETE FROM subcategory WHERE id = '"+id+"'";
         DatabaseOperations.setDataOrDeleteData(query,"Sub-Category Deleted!");
     }
+    
+    public static ArrayList<SubCategories> getAllRecordsByCategory(String categories){
+        ArrayList<SubCategories> arrLst = new ArrayList<>();
+        try{
+            ResultSet r = DatabaseOperations.getData("SELECT * FROM subcategory WHERE category='"+categories+"'");
+            while(r.next()){
+                SubCategories subcategories = new SubCategories();
+                subcategories.setName(r.getString("name"));
+                arrLst.add(subcategories);
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return arrLst;
+    }
+    
+    public static ArrayList<SubCategories> filterSubCategoryByName(String name, String categories){
+        ArrayList<SubCategories> arrLst = new ArrayList<>();
+        try{
+            ResultSet r = DatabaseOperations.getData("SELECT * FROM subcategory WHERE name LIKE '%"+name+"%' AND category= '"+categories+"'");
+            while(r.next()){
+                SubCategories subcategories = new SubCategories();
+                subcategories.setName(r.getString("name"));
+                arrLst.add(subcategories);
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return arrLst;
+    }
+    
+    public static SubCategories getSubCategoryByName(String name){
+        SubCategories subcategories = new SubCategories();
+        try{
+            ResultSet r = DatabaseOperations.getData("SELECT * FROM subcategory WHERE name= '"+name+"'");
+            while(r.next()){
+                subcategories.setName(r.getString(2));
+                subcategories.setCategory(r.getString(3));
+                subcategories.setPrice(r.getString(4));
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+        return subcategories;
+    }
 }
