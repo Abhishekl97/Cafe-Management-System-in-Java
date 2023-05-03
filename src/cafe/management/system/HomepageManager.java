@@ -39,6 +39,11 @@ public class HomepageManager extends javax.swing.JFrame {
 
         btn_order_log.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btn_order_log.setText("Order Log");
+        btn_order_log.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_order_logActionPerformed(evt);
+            }
+        });
 
         btn_modify_categories.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btn_modify_categories.setText("Modify Categories");
@@ -162,6 +167,11 @@ public class HomepageManager extends javax.swing.JFrame {
     private void btn_accept_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_accept_orderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_accept_orderActionPerformed
+
+    private void btn_order_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_order_logActionPerformed
+        // TODO add your handling code here:
+        new OrderLog().setVisible(true);
+    }//GEN-LAST:event_btn_order_logActionPerformed
 
     /**
      * @param args the command line arguments

@@ -67,9 +67,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="lbl_final_total" min="-2" pref="93" max="-2" attributes="0"/>
+                      <Component id="lbl_final_total" min="-2" pref="87" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jLabel14" min="-2" pref="69" max="-2" attributes="0"/>
+                      <Component id="jLabel14" min="-2" pref="70" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btn_generate_bill" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -482,7 +482,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Final Total: $"/>
+        <Property name="text" type="java.lang.String" value="Final Total:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel14">
