@@ -33,8 +33,8 @@
                       <Component id="btn_order_log" alignment="0" max="32767" attributes="0"/>
                       <Component id="lbl_homepage_customer" alignment="0" max="32767" attributes="0"/>
                       <Component id="btn_accept_order" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                      <Component id="btn_modify_categories1" alignment="0" max="32767" attributes="0"/>
-                      <Component id="btn_modify_categories2" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btn_modify_subcategories" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btn_add_subcategories" alignment="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="1018" max="32767" attributes="0"/>
@@ -53,9 +53,9 @@
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Component id="btn_modify_categories" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Component id="btn_modify_categories2" min="-2" max="-2" attributes="0"/>
+              <Component id="btn_add_subcategories" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="btn_modify_categories1" min="-2" max="-2" attributes="0"/>
+              <Component id="btn_modify_subcategories" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="btn_change_password" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -129,7 +129,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_signoutActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_modify_categories1">
+    <Component class="javax.swing.JButton" name="btn_modify_subcategories">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="sansserif" size="14" style="1"/>
@@ -137,10 +137,10 @@
         <Property name="text" type="java.lang.String" value="Modify Sub-Categories"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_modify_categories1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_modify_subcategoriesActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_modify_categories2">
+    <Component class="javax.swing.JButton" name="btn_add_subcategories">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="sansserif" size="14" style="1"/>
@@ -148,7 +148,7 @@
         <Property name="text" type="java.lang.String" value="Add Sub-Categories"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_modify_categories2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_add_subcategoriesActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

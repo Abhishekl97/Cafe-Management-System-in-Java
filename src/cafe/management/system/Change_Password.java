@@ -6,21 +6,25 @@ package cafe.management.system;
 
 import basic_models.Customer;
 import data_access_objects.CustomerDataAccessObject;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author abhis
  */
 public class Change_Password extends javax.swing.JFrame {
-
+    Subject sub = new Subject();
+    Tracker tra = new Tracker(sub);
     /**
      * Creates new form Change_Password
      */
-    public Change_Password() {
+    public Change_Password() throws IOException {
         initComponents();
         btn_change_password.setEnabled(false);
     }
     public String email_id;
-    public Change_Password(String email) {
+    public Change_Password(String email) throws IOException {
         initComponents();
         email_id = email;
         btn_change_password.setEnabled(false);
@@ -200,9 +204,17 @@ public class Change_Password extends javax.swing.JFrame {
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
         if (email_id.equals("manager@gmail.com")){
+            try {
                 new HomepageManager().setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(Change_Password.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }else{
+            try {
                 new HomepageCustomer(email_id).setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(Change_Password.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }
     }//GEN-LAST:event_btn_backActionPerformed
 
@@ -213,7 +225,16 @@ public class Change_Password extends javax.swing.JFrame {
 
     private void btn_signoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_signoutActionPerformed
         // TODO add your handling code here:
-        new Login_Page().setVisible(true);
+        try {
+            if (email_id.equals("manager@gmail.com")){
+               sub.signoutOutcome(email_id,0);
+            }else{
+                sub.signoutOutcome(email_id,1);
+            }
+            new Login_Page().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Change_Password.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_signoutActionPerformed
 
     private void tf_new_passwordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_new_passwordKeyReleased
@@ -230,6 +251,16 @@ public class Change_Password extends javax.swing.JFrame {
         String new_password = tf_new_password.getText();
         CustomerDataAccessObject.change_password(email_id, old_password, new_password);
         ClearFields();
+        try {
+            if (email_id.equals("manager@gmail.com")){
+                sub.changePasswordOutcome(email_id,0);
+            }else{
+                sub.changePasswordOutcome(email_id,1);
+            }
+        } 
+        catch (IOException ex) {
+            Logger.getLogger(Change_Password.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_change_passwordActionPerformed
 
     private void tf_old_passwordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_old_passwordKeyReleased
@@ -267,7 +298,12 @@ public class Change_Password extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Change_Password().setVisible(true);
+                try {
+                    CafeManagementSystem.trackerOutput();
+                    new Change_Password().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Change_Password.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

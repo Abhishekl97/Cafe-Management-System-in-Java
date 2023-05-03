@@ -4,16 +4,21 @@
  */
 package cafe.management.system;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author abhis
  */
 public class HomepageManager extends javax.swing.JFrame {
-
+    Subject sub = new Subject();
+    Tracker tra = new Tracker(sub);
     /**
      * Creates new form HomepageManager
      */
-    public HomepageManager() {
+    public HomepageManager() throws IOException {
         initComponents();
     }
     public String email_id = "manager@gmail.com";
@@ -32,8 +37,8 @@ public class HomepageManager extends javax.swing.JFrame {
         lbl_homepage_customer = new javax.swing.JLabel();
         btn_change_password = new javax.swing.JButton();
         btn_signout = new javax.swing.JButton();
-        btn_modify_categories1 = new javax.swing.JButton();
-        btn_modify_categories2 = new javax.swing.JButton();
+        btn_modify_subcategories = new javax.swing.JButton();
+        btn_add_subcategories = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,19 +85,19 @@ public class HomepageManager extends javax.swing.JFrame {
             }
         });
 
-        btn_modify_categories1.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        btn_modify_categories1.setText("Modify Sub-Categories");
-        btn_modify_categories1.addActionListener(new java.awt.event.ActionListener() {
+        btn_modify_subcategories.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btn_modify_subcategories.setText("Modify Sub-Categories");
+        btn_modify_subcategories.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_modify_categories1ActionPerformed(evt);
+                btn_modify_subcategoriesActionPerformed(evt);
             }
         });
 
-        btn_modify_categories2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        btn_modify_categories2.setText("Add Sub-Categories");
-        btn_modify_categories2.addActionListener(new java.awt.event.ActionListener() {
+        btn_add_subcategories.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
+        btn_add_subcategories.setText("Add Sub-Categories");
+        btn_add_subcategories.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_modify_categories2ActionPerformed(evt);
+                btn_add_subcategoriesActionPerformed(evt);
             }
         });
 
@@ -110,8 +115,8 @@ public class HomepageManager extends javax.swing.JFrame {
                         .addComponent(btn_order_log, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lbl_homepage_customer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_accept_order, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_modify_categories1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_modify_categories2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btn_modify_subcategories, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_add_subcategories, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(1018, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -126,9 +131,9 @@ public class HomepageManager extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(btn_modify_categories)
                 .addGap(37, 37, 37)
-                .addComponent(btn_modify_categories2)
+                .addComponent(btn_add_subcategories)
                 .addGap(31, 31, 31)
-                .addComponent(btn_modify_categories1)
+                .addComponent(btn_modify_subcategories)
                 .addGap(27, 27, 27)
                 .addComponent(btn_change_password)
                 .addGap(27, 27, 27)
@@ -140,8 +145,13 @@ public class HomepageManager extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
  
     private void btn_signoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_signoutActionPerformed
-        // TODO add your handling code here:
-        new Login_Page().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            sub.signoutOutcome(email_id,0);
+            new Login_Page().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_signoutActionPerformed
 
     private void btn_modify_categoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modify_categoriesActionPerformed
@@ -149,20 +159,24 @@ public class HomepageManager extends javax.swing.JFrame {
         new Modify_Categories().setVisible(true);
     }//GEN-LAST:event_btn_modify_categoriesActionPerformed
 
-    private void btn_modify_categories1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modify_categories1ActionPerformed
+    private void btn_modify_subcategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modify_subcategoriesActionPerformed
         // TODO add your handling code here:
         new ModifySubCategories().setVisible(true);
-    }//GEN-LAST:event_btn_modify_categories1ActionPerformed
+    }//GEN-LAST:event_btn_modify_subcategoriesActionPerformed
 
     private void btn_change_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_change_passwordActionPerformed
-        // TODO add your handling code here:
-        new Change_Password(email_id).setVisible(true);
+        try {
+            // TODO add your handling code here:
+            new Change_Password(email_id).setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_change_passwordActionPerformed
 
-    private void btn_modify_categories2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modify_categories2ActionPerformed
+    private void btn_add_subcategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_subcategoriesActionPerformed
         // TODO add your handling code here:
         new AddSubCategory().setVisible(true);
-    }//GEN-LAST:event_btn_modify_categories2ActionPerformed
+    }//GEN-LAST:event_btn_add_subcategoriesActionPerformed
 
     private void btn_accept_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_accept_orderActionPerformed
         // TODO add your handling code here:
@@ -203,17 +217,22 @@ public class HomepageManager extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomepageManager().setVisible(true);
+                try {
+                    CafeManagementSystem.trackerOutput();
+                    new HomepageManager().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(HomepageManager.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_accept_order;
+    private javax.swing.JButton btn_add_subcategories;
     private javax.swing.JButton btn_change_password;
     private javax.swing.JButton btn_modify_categories;
-    private javax.swing.JButton btn_modify_categories1;
-    private javax.swing.JButton btn_modify_categories2;
+    private javax.swing.JButton btn_modify_subcategories;
     private javax.swing.JButton btn_order_log;
     private javax.swing.JButton btn_signout;
     private javax.swing.JLabel lbl_homepage_customer;

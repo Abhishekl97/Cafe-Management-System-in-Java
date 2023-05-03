@@ -7,18 +7,23 @@ package cafe.management.system;
 import javax.swing.JOptionPane;
 import basic_models.Customer;
 import data_access_objects.CustomerDataAccessObject;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Acer
  */
 public class Signup_Page extends javax.swing.JFrame {
-    
+    Subject sub = new Subject();
+    Tracker tra = new Tracker(sub);
+    public String name;
     public String pattern_email = "^[\\w._%+-]+@[\\w.-]+.[a-zA-Z]{2,}$";
     public String pattern_mobile_number = "^[0-9]{10}$";
     /**
      * Creates new form Signup_Page
      */
-    public Signup_Page() {
+    public Signup_Page() throws IOException {
         initComponents();
         btn_create_account.setEnabled(false);
     }
@@ -36,7 +41,7 @@ public class Signup_Page extends javax.swing.JFrame {
     }
     // Check if the text fields have information
     public void validateFields(){
-        String name = tf_name.getText();
+        name = tf_name.getText();
         String email = tf_email.getText();
         String mobile_number = tf_mobile_number.getText();
         String password = tf_password.getText();
@@ -283,6 +288,11 @@ public class Signup_Page extends javax.swing.JFrame {
         // TODO add your handling code here:
         int x = JOptionPane.showConfirmDialog(null, "Do you want to close the application?","Select", JOptionPane.YES_NO_OPTION);
         if(x == 0){
+            try {
+                CafeManagementSystem.writer1.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Login_Page.class.getName()).log(Level.SEVERE, null, ex);
+            }
             System.exit(0);
         }
     }//GEN-LAST:event_btn_exitActionPerformed
@@ -298,6 +308,11 @@ public class Signup_Page extends javax.swing.JFrame {
         customer.setAnswer(tf_answer.getText());
         CustomerDataAccessObject.saveValue(customer);
         ClearFields();
+        try {
+            sub.signupOutcome(name);
+        } catch (IOException ex) {
+            Logger.getLogger(Signup_Page.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_create_accountActionPerformed
     // Clear Text Fields
     private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
@@ -343,7 +358,11 @@ public class Signup_Page extends javax.swing.JFrame {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        new Login_Page().setVisible(true);
+        try {
+            new Login_Page().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Signup_Page.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_loginActionPerformed
 
     /**
@@ -376,7 +395,12 @@ public class Signup_Page extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Signup_Page().setVisible(true);
+                try {
+                    CafeManagementSystem.trackerOutput();
+                    new Signup_Page().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Signup_Page.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

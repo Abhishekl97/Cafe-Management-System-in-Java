@@ -8,9 +8,12 @@ import basic_models.Categories;
 import basic_models.SubCategories;
 import data_access_objects.CategoriesDataAccessObject;
 import data_access_objects.SubCategoriesDataAccessObject;
+import java.io.IOException;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 /**
@@ -310,9 +313,13 @@ public class ModifySubCategories extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_clearActionPerformed
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-        new HomepageManager().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            setVisible(false);
+            new HomepageManager().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(ModifySubCategories.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_backActionPerformed
 
     /**

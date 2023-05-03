@@ -4,20 +4,25 @@
  */
 package cafe.management.system;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author abhis
  */
 public class HomepageCustomer extends javax.swing.JFrame {
-
+    Subject sub = new Subject();
+    Tracker tra = new Tracker(sub);
     /**
      * Creates new form HomepageCustomer
      */
-    public HomepageCustomer() {
+    public HomepageCustomer() throws IOException {
         initComponents();
     }
     public String email_id;
-    public HomepageCustomer(String email) {
+    public HomepageCustomer(String email) throws IOException {
         initComponents();
         email_id = email;
     }
@@ -104,19 +109,32 @@ public class HomepageCustomer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_signoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_signoutActionPerformed
-        // TODO add your handling code here:
-        new Login_Page().setVisible(true);
+        try {
+            // TODO add your handling code here:\
+            sub.signoutOutcome(email_id,1);
+            new Login_Page().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_signoutActionPerformed
 
     private void btn_change_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_change_passwordActionPerformed
-        // TODO add your handling code here:
-        new Change_Password(email_id).setVisible(true);
+        try {
+            // TODO add your handling code here:
+            new Change_Password(email_id).setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_change_passwordActionPerformed
 
     private void btn_place_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_place_orderActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-        new PlaceOrder(email_id).setVisible(true);
+        try {
+            new PlaceOrder(email_id).setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageCustomer.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_place_orderActionPerformed
 
     /**
@@ -149,7 +167,12 @@ public class HomepageCustomer extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomepageCustomer().setVisible(true);
+                try {
+                    CafeManagementSystem.trackerOutput();
+                    new HomepageCustomer().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(HomepageCustomer.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

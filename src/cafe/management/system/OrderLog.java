@@ -6,10 +6,13 @@ package cafe.management.system;
 
 import basic_models.Bill;
 import data_access_objects.BillDataAccessObject;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import pdf.pdfOpen;
@@ -177,9 +180,13 @@ public class OrderLog extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-        new HomepageManager().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            setVisible(false);
+            new HomepageManager().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(OrderLog.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased

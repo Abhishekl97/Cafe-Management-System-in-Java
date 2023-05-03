@@ -7,19 +7,24 @@ package cafe.management.system;
 import javax.swing.JOptionPane;
 import basic_models.Customer;
 import data_access_objects.CustomerDataAccessObject;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author abhis
  */
 public class ForgotPassword extends javax.swing.JFrame {
+    Subject sub = new Subject();
+    Tracker tra = new Tracker(sub);
     private String customer_answer = null;
     private String email = null;
     private final String email_pattern = "^[\\w._%+-]+@[\\w.-]+.[a-zA-Z]{2,}$";
     /**
      * Creates new form ForgotPassword
      */
-    public ForgotPassword() {
+    public ForgotPassword() throws IOException {
         initComponents();
         btn_reset_password.setEnabled(false);
         tf_security_question.setEditable(false);
@@ -280,6 +285,16 @@ public class ForgotPassword extends javax.swing.JFrame {
         if(answer.equals(customer_answer)){
             CustomerDataAccessObject.reset_password(email, new_password);
             ClearFields();
+            try {
+                if (email.equals("manager@gmail.com")){
+                    sub.forgotPasswordOutcome(email,0);
+                }else{
+                    sub.forgotPasswordOutcome(email,1);
+                }
+            } 
+        catch (IOException ex) {
+            Logger.getLogger(Change_Password.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
         else{
             JOptionPane.showMessageDialog(null, "Incorrect Answer","Message",JOptionPane.ERROR_MESSAGE);
@@ -293,8 +308,12 @@ public class ForgotPassword extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_clearActionPerformed
     // Navigate to the login page when 'Login' button is clicked
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        // TODO add your handling code here:
-        new Login_Page().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            new Login_Page().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(ForgotPassword.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_loginActionPerformed
     // Exit the application
     private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
@@ -356,7 +375,12 @@ public class ForgotPassword extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ForgotPassword().setVisible(true);
+                try {
+                    CafeManagementSystem.trackerOutput();
+                    new ForgotPassword().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(ForgotPassword.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     } 

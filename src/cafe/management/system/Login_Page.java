@@ -7,22 +7,26 @@ package cafe.management.system;
 import javax.swing.JOptionPane;
 import basic_models.Customer;
 import data_access_objects.CustomerDataAccessObject;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Acer
  */
 public class Login_Page extends javax.swing.JFrame {
-    
+    Subject sub = new Subject();
+    Tracker tra = new Tracker(sub);
+    public String email;
     public String pattern_email = "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$";
     /**
      * Creates new form Login_Page
      */
-    public Login_Page() {
+    public Login_Page() throws IOException {       
         initComponents();
         btn_login.setEnabled(false);
     }
-    
     // Clear text fields
     public void clearFields(){
         // Clearing fields after the clear button is clicked
@@ -31,7 +35,7 @@ public class Login_Page extends javax.swing.JFrame {
     }
     // Check if the text fields have information
     public void validateFields(){
-        String email = tf_email.getText();
+        email = tf_email.getText();
         String password = tf_password.getText();
         if(email.matches(pattern_email) && !password.equals("")){
             btn_login.setEnabled(true);
@@ -57,7 +61,7 @@ public class Login_Page extends javax.swing.JFrame {
         tf_email = new javax.swing.JTextField();
         tf_password = new javax.swing.JPasswordField();
         btn_login = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_forgot_password = new javax.swing.JButton();
         btn_clear = new javax.swing.JButton();
         btn_exit = new javax.swing.JButton();
 
@@ -94,11 +98,11 @@ public class Login_Page extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setText("Forgot Password?");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_forgot_password.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btn_forgot_password.setText("Forgot Password?");
+        btn_forgot_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_forgot_passwordActionPerformed(evt);
             }
         });
 
@@ -141,7 +145,7 @@ public class Login_Page extends javax.swing.JFrame {
                         .addGap(133, 133, 133)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_exit)
-                            .addComponent(jButton2))))
+                            .addComponent(btn_forgot_password))))
                 .addContainerGap(966, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -161,7 +165,7 @@ public class Login_Page extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_login)
-                    .addComponent(jButton2))
+                    .addComponent(btn_forgot_password))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_clear)
@@ -176,6 +180,11 @@ public class Login_Page extends javax.swing.JFrame {
         // TODO add your handling code here:
         int x = JOptionPane.showConfirmDialog(null, "Do you want to exit this application?","Select",JOptionPane.YES_NO_OPTION);
         if(x==0){
+            try {
+                CafeManagementSystem.writer1.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Login_Page.class.getName()).log(Level.SEVERE, null, ex);
+            }
             System.exit(0);
         }
     }//GEN-LAST:event_btn_exitActionPerformed
@@ -192,9 +201,19 @@ public class Login_Page extends javax.swing.JFrame {
         else{// Navigate to te HomePage
             setVisible(false);
             if (email.equals("manager@gmail.com")){
-                new HomepageManager().setVisible(true);
+                try {
+                    sub.loginOutcome(email,0);
+                    new HomepageManager().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Login_Page.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }else{
-                new HomepageCustomer(email).setVisible(true);
+                try {
+                    sub.loginOutcome(email,1);
+                    new HomepageCustomer(email).setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Login_Page.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }//GEN-LAST:event_btn_loginActionPerformed
@@ -214,10 +233,14 @@ public class Login_Page extends javax.swing.JFrame {
         clearFields();
     }//GEN-LAST:event_btn_clearActionPerformed
     // Navigate to the Forgot Password Page when 'Forgot Password' button is clicked
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        new ForgotPassword().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btn_forgot_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_forgot_passwordActionPerformed
+        try {
+            // TODO add your handling code here:
+            new ForgotPassword().setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Login_Page.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btn_forgot_passwordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,7 +272,12 @@ public class Login_Page extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login_Page().setVisible(true);
+                try {
+                    CafeManagementSystem.trackerOutput();
+                    new Login_Page().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Login_Page.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -257,8 +285,8 @@ public class Login_Page extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_clear;
     private javax.swing.JButton btn_exit;
+    private javax.swing.JButton btn_forgot_password;
     private javax.swing.JButton btn_login;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

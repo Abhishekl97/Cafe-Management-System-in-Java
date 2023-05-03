@@ -16,10 +16,13 @@ import data_access_objects.CategoriesDataAccessObject;
 import data_access_objects.SubCategoriesDataAccessObject;
 import static data_access_objects.SubCategoriesDataAccessObject.filterSubCategoryByName;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
@@ -31,6 +34,8 @@ import javax.swing.table.TableModel;
  * @author Acer
  */
 public class PlaceOrder extends javax.swing.JFrame {
+    Subject sub = new Subject();
+    Tracker tra = new Tracker(sub);
     public int billId = 1;
     public int finalTotal = 0;
     public int subcategoryPrice = 0;
@@ -42,11 +47,11 @@ public class PlaceOrder extends javax.swing.JFrame {
     /**
      * Creates new form PlaceOrder
      */
-    public PlaceOrder() {
+    public PlaceOrder() throws IOException {
         initComponents();
     }
     
-    public PlaceOrder(String email) {
+    public PlaceOrder(String email) throws IOException {
         initComponents();
         txt_subcategory_name.setEditable(false);
         txt_subcategory_price.setEditable(false);
@@ -120,8 +125,6 @@ public class PlaceOrder extends javax.swing.JFrame {
         txt_cust_email = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        txt_search = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
@@ -196,16 +199,6 @@ public class PlaceOrder extends javax.swing.JFrame {
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setText("Search");
-
-        txt_search.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txt_search.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_searchKeyReleased(evt);
             }
         });
 
@@ -330,16 +323,11 @@ public class PlaceOrder extends javax.swing.JFrame {
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btn_back))
                 .addGap(128, 128, 128)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txt_search, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 312, Short.MAX_VALUE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(190, 190, 190)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(196, 196, 196)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbl_final_total, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -382,17 +370,10 @@ public class PlaceOrder extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(32, 32, 32)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txt_search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_cust_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                                .addGap(60, 60, 60)))
+                        .addGap(18, 30, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addGap(32, 32, 32)
+                        .addComponent(txt_cust_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(93, 93, 93)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -441,21 +422,24 @@ public class PlaceOrder extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-        new HomepageCustomer(customerEmail).setVisible(true);
+        try {
+            // TODO add your handling code here:
+            setVisible(false);
+            new HomepageCustomer(customerEmail).setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(PlaceOrder.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btn_generate_billActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generate_billActionPerformed
         // TODO add your handling code here:
         String customerName = txt_cust_name.getText();
         String customerMobileNumber = txt_cust_mobile_number.getText();
-        String customerEmail = txt_cust_email.getText();
+        String createdBy = txt_cust_email.getText();
         SimpleDateFormat df = new SimpleDateFormat("MM-dd-yyyy");
         Date date = new Date();
         String dateToday = df.format(date);
         String total = String.valueOf(finalTotal);
-        String createdBy = customerEmail;
         Bill bill = new Bill();
         bill.setId(billId);
         bill.setName(customerName);
@@ -505,8 +489,17 @@ public class PlaceOrder extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
         doc.close();
+        try {
+            sub.orderPlacedOutcome(customerEmail);
+        } catch (IOException ex) {
+            Logger.getLogger(Signup_Page.class.getName()).log(Level.SEVERE, null, ex);
+        }
         setVisible(false);
-        new PlaceOrder(createdBy).setVisible(true);
+        try {
+            new PlaceOrder(customerEmail).setVisible(true);
+        } catch (IOException ex) {
+            Logger.getLogger(PlaceOrder.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_generate_billActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
@@ -522,13 +515,6 @@ public class PlaceOrder extends javax.swing.JFrame {
         String categories = (String) jComboBox1.getSelectedItem();
         subcategoryNameByCategory(categories);
     }//GEN-LAST:event_formComponentShown
-
-    private void txt_searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_searchKeyReleased
-        // TODO add your handling code here:
-        String name = txt_search.getText();
-        String category = (String) jComboBox1.getSelectedItem();
-        filterSubCategoryByName(name, category);
-    }//GEN-LAST:event_txt_searchKeyReleased
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
@@ -639,7 +625,12 @@ public class PlaceOrder extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PlaceOrder().setVisible(true);
+                try {
+                    CafeManagementSystem.trackerOutput();
+                    new PlaceOrder().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(PlaceOrder.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -662,7 +653,6 @@ public class PlaceOrder extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -673,7 +663,6 @@ public class PlaceOrder extends javax.swing.JFrame {
     private javax.swing.JTextField txt_cust_email;
     private javax.swing.JTextField txt_cust_mobile_number;
     private javax.swing.JTextField txt_cust_name;
-    private javax.swing.JTextField txt_search;
     private javax.swing.JTextField txt_subcategory_name;
     private javax.swing.JTextField txt_subcategory_price;
     private javax.swing.JTextField txt_subcategory_total;
