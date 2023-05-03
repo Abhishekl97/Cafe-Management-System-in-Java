@@ -37,7 +37,6 @@ public class HomepageCustomer extends javax.swing.JFrame {
     private void initComponents() {
 
         lbl_homepage_customer = new javax.swing.JLabel();
-        btn_order_history = new javax.swing.JButton();
         btn_place_order = new javax.swing.JButton();
         btn_signout = new javax.swing.JButton();
         btn_change_password = new javax.swing.JButton();
@@ -46,9 +45,6 @@ public class HomepageCustomer extends javax.swing.JFrame {
 
         lbl_homepage_customer.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
         lbl_homepage_customer.setText(" HomePage");
-
-        btn_order_history.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        btn_order_history.setText("Order History");
 
         btn_place_order.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         btn_place_order.setText("Place Order");
@@ -84,9 +80,8 @@ public class HomepageCustomer extends javax.swing.JFrame {
                     .addComponent(btn_signout, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(btn_change_password, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_order_history, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lbl_homepage_customer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_place_order, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_place_order, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(1021, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -94,15 +89,13 @@ public class HomepageCustomer extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(86, 86, 86)
                 .addComponent(lbl_homepage_customer)
-                .addGap(89, 89, 89)
+                .addGap(110, 110, 110)
                 .addComponent(btn_place_order)
-                .addGap(32, 32, 32)
-                .addComponent(btn_order_history)
-                .addGap(28, 28, 28)
+                .addGap(35, 35, 35)
                 .addComponent(btn_change_password)
                 .addGap(32, 32, 32)
                 .addComponent(btn_signout)
-                .addContainerGap(662, Short.MAX_VALUE))
+                .addContainerGap(692, Short.MAX_VALUE))
         );
 
         pack();
@@ -179,7 +172,6 @@ public class HomepageCustomer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_change_password;
-    private javax.swing.JButton btn_order_history;
     private javax.swing.JButton btn_place_order;
     private javax.swing.JButton btn_signout;
     private javax.swing.JLabel lbl_homepage_customer;

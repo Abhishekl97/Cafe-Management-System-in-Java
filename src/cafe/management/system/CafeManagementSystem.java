@@ -166,8 +166,6 @@ public class CafeManagementSystem {
     
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        trackerOutput();
-        System.out.println(CafeManagementSystem.writer1);
     }
     
 }

@@ -33,7 +33,6 @@ public class HomepageManager extends javax.swing.JFrame {
 
         btn_order_log = new javax.swing.JButton();
         btn_modify_categories = new javax.swing.JButton();
-        btn_accept_order = new javax.swing.JButton();
         lbl_homepage_customer = new javax.swing.JLabel();
         btn_change_password = new javax.swing.JButton();
         btn_signout = new javax.swing.JButton();
@@ -55,14 +54,6 @@ public class HomepageManager extends javax.swing.JFrame {
         btn_modify_categories.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_modify_categoriesActionPerformed(evt);
-            }
-        });
-
-        btn_accept_order.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        btn_accept_order.setText("Accept Order");
-        btn_accept_order.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_accept_orderActionPerformed(evt);
             }
         });
 
@@ -113,8 +104,7 @@ public class HomepageManager extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(btn_modify_categories, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_order_log, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbl_homepage_customer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_accept_order, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbl_homepage_customer, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                         .addComponent(btn_modify_subcategories, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_add_subcategories, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(1018, Short.MAX_VALUE))
@@ -124,9 +114,7 @@ public class HomepageManager extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(86, 86, 86)
                 .addComponent(lbl_homepage_customer)
-                .addGap(89, 89, 89)
-                .addComponent(btn_accept_order)
-                .addGap(32, 32, 32)
+                .addGap(147, 147, 147)
                 .addComponent(btn_order_log)
                 .addGap(28, 28, 28)
                 .addComponent(btn_modify_categories)
@@ -178,10 +166,6 @@ public class HomepageManager extends javax.swing.JFrame {
         new AddSubCategory().setVisible(true);
     }//GEN-LAST:event_btn_add_subcategoriesActionPerformed
 
-    private void btn_accept_orderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_accept_orderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_accept_orderActionPerformed
-
     private void btn_order_logActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_order_logActionPerformed
         // TODO add your handling code here:
         new OrderLog().setVisible(true);
@@ -228,7 +212,6 @@ public class HomepageManager extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_accept_order;
     private javax.swing.JButton btn_add_subcategories;
     private javax.swing.JButton btn_change_password;
     private javax.swing.JButton btn_modify_categories;
