@@ -1,0 +1,12 @@
+New account created for Abhishek.
+Password reset for User abhishek@gmail.com.
+User abhishek@gmail.com logged in.
+User abhishek@gmail.com logged out.
+Manager logged in.
+Manager logged out.
+User abhishek@gmail.com logged in.
+User abhishek@gmail.com placed order.
+User abhishek@gmail.com logged out.
+Manager logged in.
+Password changed for Manager.
+Manager logged out.
