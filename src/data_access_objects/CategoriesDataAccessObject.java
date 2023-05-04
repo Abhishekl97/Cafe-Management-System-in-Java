@@ -12,11 +12,13 @@ import javax.swing.JOptionPane;
  * @author abhis
  */
 public class CategoriesDataAccessObject {
+    // Save Category details
     public static void save(Categories category){
         String query = "insert into Category (name) values('"+category.getName()+"');";
         DatabaseOperations.setDataOrDeleteData(query, "Category Added Successfully!");
     }
     
+    // Get Category records
     public static ArrayList<Categories> getAllRecords(){
         ArrayList<Categories> arrayList = new ArrayList();
         try{
@@ -34,6 +36,7 @@ public class CategoriesDataAccessObject {
         return arrayList;
     }
     
+    // Delete Category
     public static void delete(String id){
         String query = "delete from Category where id='"+id+"';";
         DatabaseOperations.setDataOrDeleteData(query, "Category Deleted Successfully!");

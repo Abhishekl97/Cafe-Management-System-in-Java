@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -132,6 +132,7 @@ public class HomepageManager extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
  
+    // Manager Signout
     private void btn_signoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_signoutActionPerformed
         try {
             // TODO add your handling code here:
@@ -142,6 +143,7 @@ public class HomepageManager extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_signoutActionPerformed
 
+    // Call for respective pages
     private void btn_modify_categoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modify_categoriesActionPerformed
         // TODO add your handling code here:
         new Modify_Categories().setVisible(true);

@@ -188,6 +188,7 @@ public class Modify_Categories extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Update a new Category
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
         // TODO add your handling code here:
         Categories category = new Categories();
@@ -196,7 +197,7 @@ public class Modify_Categories extends javax.swing.JFrame {
         setVisible(false);
         new Modify_Categories().setVisible(true);
     }//GEN-LAST:event_btn_saveActionPerformed
-
+    
     private void tf_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_nameKeyReleased
         // TODO add your handling code here:
         validateField();
@@ -217,7 +218,7 @@ public class Modify_Categories extends javax.swing.JFrame {
             dtm.addRow(new Object[] {categoryObj.getId(),categoryObj.getName()});
         }
     }//GEN-LAST:event_formComponentShown
-
+    // Delete a category
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         int index = jTable1.getSelectedRow();
@@ -232,6 +233,7 @@ public class Modify_Categories extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
+    // Redirect to the mager homepage
     private void btn_manager_homepageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_manager_homepageActionPerformed
         try {
             // TODO add your handling code here:

@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
@@ -12,6 +12,8 @@ import java.io.FileWriter;
  *
  * @author Acer
  */
+
+// Observer Pattern
 interface Publisher{
     public void registerObserver(Observer o);
     public void removeObserver(Observer o);
@@ -30,6 +32,7 @@ interface Observer{
     public void updatePasswordChange(Observer o,String email, int i) throws IOException;
     public void updateOrderPlaced(Observer o,String email) throws IOException;
 }
+// Notify events
 class Subject implements Publisher{
     static Observer o;
     static ArrayList<Observer> observers;
@@ -88,7 +91,7 @@ class Subject implements Publisher{
         o.updateOrderPlaced(o,email);         
     }
 }
-
+// Track all events
 class Tracker implements Observer{
     Publisher subject;
     public Tracker(Publisher subject) throws IOException{

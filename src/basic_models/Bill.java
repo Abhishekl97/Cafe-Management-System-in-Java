@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -17,6 +17,7 @@ public class Bill {
     private String total;
     private String createdBy;
 
+    //Setters and Getters
     public void setId(int id) {
         this.id = id;
     }

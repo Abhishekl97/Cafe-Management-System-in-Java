@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -35,6 +35,7 @@ public class Change_Password extends javax.swing.JFrame {
         tf_new_password.setText("");
         tf_confirm_password.setText("");  
     }
+    // Check for information in the text fields
     public void validateFields(){
         String oldPassword = tf_old_password.getText();
         String newPassword = tf_new_password.getText();
@@ -201,6 +202,7 @@ public class Change_Password extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Button actions and key releases for adding GUI functionality 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
         if (email_id.equals("manager@gmail.com")){
@@ -222,7 +224,7 @@ public class Change_Password extends javax.swing.JFrame {
         // TODO add your handling code here:
         ClearFields();
     }//GEN-LAST:event_btn_clearActionPerformed
-
+    // Signout of the application
     private void btn_signoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_signoutActionPerformed
         // TODO add your handling code here:
         try {
@@ -245,6 +247,7 @@ public class Change_Password extends javax.swing.JFrame {
         validateFields();
     }//GEN-LAST:event_tf_confirm_passwordKeyReleased
 
+    // Changing the Password after button is pressed
     private void btn_change_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_change_passwordActionPerformed
         // TODO add your handling code here:
         String old_password = tf_old_password.getText();

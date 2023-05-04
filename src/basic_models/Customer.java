@@ -18,6 +18,7 @@ public class Customer {
     private String securityQuestion;
     private String answer;
 
+    //Setters and Getters
     public int getId() {
         return id;
     }

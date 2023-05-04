@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  * @author Acer
  */
 public class BillDataAccessObject {
+    // Get Bill ID
     public static String getId(){
         int id = 1;
         try{
@@ -29,12 +30,13 @@ public class BillDataAccessObject {
         }
         return String.valueOf(id);
     }
-    
+    // Save the bill details in the database
     public static void saveValue(Bill bill){
         String query = "INSERT INTO billdetailstable VALUES('"+bill.getId()+"', '"+bill.getName()+"', '"+bill.getMobile_number()+"', '"+bill.getEmail()+"', '"+bill.getDate()+"', '"+bill.getTotal()+"', '"+bill.getCreatedBy()+"')";
         DatabaseOperations.setDataOrDeleteData(query,"Bill Details Added!");
     }
     
+    // Get record by Ascending order
     public static ArrayList<Bill> getAllRecordsByIncrement(String date){
         ArrayList<Bill> arrLst = new ArrayList<>();
         try{
@@ -56,7 +58,7 @@ public class BillDataAccessObject {
         }
         return arrLst;
     }
-    
+    // Get record by Descending order
     public static ArrayList<Bill> getAllRecordsByDecrement(String date){
         ArrayList<Bill> arrLst = new ArrayList<>();
         try{

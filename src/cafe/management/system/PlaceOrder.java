@@ -62,7 +62,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         t.setEnabled(false);
         customerEmail = email;
     }
-    
+    // Get Subcategory by name
     public void subcategoryNameByCategory(String category){
         DefaultTableModel dt = (DefaultTableModel) jTable1.getModel();
         dt.setRowCount(0);
@@ -84,7 +84,7 @@ public class PlaceOrder extends javax.swing.JFrame {
             dt.addRow(new Object[]{subcategories_obj.getName()});
         }
     }
-    
+    // clear SubCategory Text fields
     public void clearSubCategoryFields(){
         txt_subcategory_name.setText("");
         txt_subcategory_price.setText("");
@@ -92,7 +92,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         txt_subcategory_total.setText("");
         btn_add_to_cart.setEnabled(false);
     }
-    
+    // Check for information in the text fields
     public void validateFields(){
         String customerName = txt_cust_name.getText();
         String customerMobileNumber = txt_cust_mobile_number.getText();
@@ -421,6 +421,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Redirect to the Customer homepage
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         try {
             // TODO add your handling code here:
@@ -431,6 +432,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_backActionPerformed
 
+    //Update the database with bill details and genereate a pdf with bill details
     private void btn_generate_billActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generate_billActionPerformed
         // TODO add your handling code here:
         String customerName = txt_cust_name.getText();
@@ -516,6 +518,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         subcategoryNameByCategory(categories);
     }//GEN-LAST:event_formComponentShown
 
+    // Get Subcategory details
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         int index = jTable1.getSelectedRow();
@@ -531,6 +534,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         btn_add_to_cart.setEnabled(true);
     }//GEN-LAST:event_jTable1MouseClicked
 
+    // Change price as per quantity of items
     private void jSpinner1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinner1StateChanged
         // TODO add your handling code here:
         int quantity = (Integer) jSpinner1.getValue();
@@ -542,12 +546,14 @@ public class PlaceOrder extends javax.swing.JFrame {
         txt_subcategory_total.setText(String.valueOf(subcategoryTotal));
     }//GEN-LAST:event_jSpinner1StateChanged
 
+    
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
         String category = (String) jComboBox1.getSelectedItem();
         subcategoryNameByCategory(category);
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    // add selected item details in cart 
     private void btn_add_to_cartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_to_cartActionPerformed
         // TODO add your handling code here:
         String name = txt_subcategory_name.getText();
@@ -562,6 +568,7 @@ public class PlaceOrder extends javax.swing.JFrame {
         validateFields();
     }//GEN-LAST:event_btn_add_to_cartActionPerformed
 
+    // clear and validate fields
     private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
         // TODO add your handling code here:
         clearSubCategoryFields();
@@ -582,10 +589,11 @@ public class PlaceOrder extends javax.swing.JFrame {
         validateFields();
     }//GEN-LAST:event_txt_cust_emailKeyReleased
 
+    //remove item from cart
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
         int index = jTable2.getSelectedRow();
-        int x = JOptionPane.showConfirmDialog(null,"Do you want to move the selected subcategory?","Select",JOptionPane.YES_NO_OPTION);
+        int x = JOptionPane.showConfirmDialog(null,"Do you want to remove the selected subcategory?","Select",JOptionPane.YES_NO_OPTION);
         if(x==0){
             TableModel model = jTable2.getModel();
             String total = model.getValueAt(index,3).toString();

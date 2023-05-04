@@ -33,7 +33,7 @@ public class OrderLog extends javax.swing.JFrame {
         String dateToday = df.format(date);
         jTextField1.setText(dateToday);
     }
-    
+    //Manipulating the order log table
     public void tableDetails(){
         String date = jTextField1.getText();
         String increDecre = (String) jComboBox1.getSelectedItem();
@@ -179,6 +179,7 @@ public class OrderLog extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Redirect to the manager homepage
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         try {
             // TODO add your handling code here:
@@ -189,6 +190,7 @@ public class OrderLog extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_backActionPerformed
 
+    //Call or updating the logs on button clicks
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         // TODO add your handling code here:
         tableDetails();
@@ -199,6 +201,7 @@ public class OrderLog extends javax.swing.JFrame {
         tableDetails();
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    //Show order details by opening bill pdf
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         int idx = jTable1.getSelectedRow();

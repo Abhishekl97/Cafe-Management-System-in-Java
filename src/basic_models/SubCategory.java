@@ -14,6 +14,7 @@ public class SubCategory {
     private String category;
     private String price;
 
+    //Setters and Getters
     public void setId(int id) {
         this.id = id;
     }

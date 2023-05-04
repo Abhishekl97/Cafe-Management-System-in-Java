@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -27,7 +27,7 @@ public class AddSubCategory extends javax.swing.JFrame {
         initComponents();
         btn_save.setEnabled(false);
     }
-    
+    // Check for information in the text fields
     public void validateFields(){
         String name = txt_name.getText();
         String price = txt_price.getText();
@@ -183,6 +183,7 @@ public class AddSubCategory extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Button actions and key releases for adding GUI functionality
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
         ArrayList<Categories> list = CategoriesDataAccessObject.getAllRecords();

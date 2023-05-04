@@ -31,7 +31,7 @@ public class ModifySubCategories extends javax.swing.JFrame {
         btn_delete.setEnabled(false);
         
     }
-    
+    // Check for information in the text fields
     public void validateFields(){
         String name = txt_name.getText();
         String price = txt_price.getText();
@@ -233,7 +233,7 @@ public class ModifySubCategories extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    // Validate by checking information
     private void txt_nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nameKeyReleased
         // TODO add your handling code here:
         validateFields();
@@ -243,7 +243,7 @@ public class ModifySubCategories extends javax.swing.JFrame {
         // TODO add your handling code here:
         validateFields();
     }//GEN-LAST:event_txt_priceKeyReleased
-
+    // Update subcategory
     private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
         // TODO add your handling code here:
         SubCategories subcategories = new SubCategories();
@@ -256,7 +256,7 @@ public class ModifySubCategories extends javax.swing.JFrame {
         setVisible(false);
         new ModifySubCategories().setVisible(true);
     }//GEN-LAST:event_btn_updateActionPerformed
-
+    // Update table with subcategory details
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
         DefaultTableModel dm = (DefaultTableModel) jTable1.getModel();
@@ -267,7 +267,7 @@ public class ModifySubCategories extends javax.swing.JFrame {
             dm.addRow(new Object[]{subcategories_obj.getId(), subcategories_obj.getName(), subcategories_obj.getCategory(), subcategories_obj.getPrice()});
         }
     }//GEN-LAST:event_formComponentShown
-
+    // Actions when information within the table is clicked
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         int idx = jTable1.getSelectedRow();
@@ -294,6 +294,7 @@ public class ModifySubCategories extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
+    // Delete a subcategory
     private void btn_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deleteActionPerformed
         // TODO add your handling code here:
         String id = lbl_id.getText();
@@ -306,12 +307,14 @@ public class ModifySubCategories extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_deleteActionPerformed
 
+    //Clear all fields
     private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         new ModifySubCategories().setVisible(true);
     }//GEN-LAST:event_btn_clearActionPerformed
 
+    //Redirect to homepage
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         try {
             // TODO add your handling code here:

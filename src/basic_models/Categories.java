@@ -11,7 +11,8 @@ package basic_models;
 public class Categories {
     private int id;
     private String name;
-
+    
+    //Setters and Getters
     public int getId() {
         return id;
     }

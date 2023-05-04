@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -8,15 +8,17 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 /**
- *
+ * 
  * @author Acer
  */
 public class SubCategoriesDataAccessObject {
+    // Save the Sub-Category information
     public static void saveValue(SubCategories subcategory){
         String query = "INSERT INTO subcategory(name, category, price) VALUES('"+subcategory.getName()+"','"+subcategory.getCategory()+"','"+subcategory.getPrice()+"')";
         DatabaseOperations.setDataOrDeleteData(query,"Sub-Category Added!");
     }
     
+        // Get subcategory records
         public static ArrayList<SubCategories> getAllRecords(){
         ArrayList<SubCategories> arrLst = new ArrayList<>();
         try{
@@ -35,17 +37,19 @@ public class SubCategoriesDataAccessObject {
         }
         return arrLst;
     }
-        
+     //Update Subcategory   
     public static void update(SubCategories subCategories) {
         String query = "update subcategory set name = '"+subCategories.getName()+"', category ='"+subCategories.getCategory()+"', price = '"+subCategories.getPrice()+"' WHERE id='"+subCategories.getId()+"'";
         DatabaseOperations.setDataOrDeleteData(query,"Sub-Category Updated");
     }
     
+    //Delete Subcategory
     public static void delete(String id){
         String query = "DELETE FROM subcategory WHERE id = '"+id+"'";
         DatabaseOperations.setDataOrDeleteData(query,"Sub-Category Deleted!");
     }
     
+    // Get records based on their category
     public static ArrayList<SubCategories> getAllRecordsByCategory(String categories){
         ArrayList<SubCategories> arrLst = new ArrayList<>();
         try{
@@ -62,6 +66,7 @@ public class SubCategoriesDataAccessObject {
         return arrLst;
     }
     
+    // Filter Records based on their subcategory name
     public static ArrayList<SubCategories> filterSubCategoryByName(String name, String categories){
         ArrayList<SubCategories> arrLst = new ArrayList<>();
         try{
@@ -77,7 +82,7 @@ public class SubCategoriesDataAccessObject {
         }
         return arrLst;
     }
-    
+    // Get Records based on their subcategory name
     public static SubCategories getSubCategoryByName(String name){
         SubCategories subcategories = new SubCategories();
         try{
