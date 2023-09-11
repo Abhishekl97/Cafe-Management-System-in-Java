@@ -1,4 +1,4 @@
-# Project-5-OOAD
+# Cafe Management System in Java
  
 Team Members: Omkar Yeole and Abhishek Limaye
 
