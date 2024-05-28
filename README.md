@@ -18,6 +18,7 @@ The Cafe Management System is a Java-based application designed to streamline op
 **Database:** MySQL
 
 **User Interface:** JFrame
+
 **Version Control:** Git, GitHub 
 
 # Installation
@@ -49,3 +50,9 @@ Password: admin
 
 ## The link for the video Demonstration is as follows:
 [https://drive.google.com/drive/folders/182TxzS1zC0vhTO8qKBaCKO0abze5g5JX?usp=sharing](https://drive.google.com/file/d/12gLfMLcLw0eB48qSsHmX0nDMJgFpA0H1/view?usp=sharing)
+
+## Contact
+
+For any questions or further information, you can reach me at omkar.yeole@colorado.edu.
+
+Thank you for visiting the Cafe Management System project!
