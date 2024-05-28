@@ -45,7 +45,7 @@ Password: admin
 
 **Customer Interface:** Customers can log in, view the menu, add items to their cart, place orders, and track their order status.
 
-**Staff Interface:** Staff members can log in, view incoming orders, update order statuses, manage inventory, and generate sales reports.
+**Staff Interface:** Staff members can log in, view incoming orders, update order statuses, manage inventory, and generate sales receipts.
 
 
 ## The link for the video Demonstration is as follows:
